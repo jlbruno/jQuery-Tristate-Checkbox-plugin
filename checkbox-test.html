@@ -7,66 +7,54 @@
 <body>
 
 <!-- abbreviation for zen coding to generate test html 	
-ul.tristate>li>input[type="checkbox"]+ul>li*3>input[type="checkbox"]+ul>li*2>input[type="checkbox"]+ul>li*2>input[type="checkbox"]
+ul.tristate>li>input[type="checkbox"]+label{checkbox}+ul>li*2>input[type="checkbox"]+label{checkbox}+ul>li*2>input[type="checkbox"]+label{checkbox}+ul>li*2>input[type="checkbox"]+label{checkbox}
 -->
 
 <ul class="tristate">
 	<li>
 		<input type="checkbox" />
+		<label for="">checkbox</label>
 		<ul>
 			<li>
 				<input type="checkbox" />
+				<label for="">checkbox</label>
 				<ul>
 					<li>
 						<input type="checkbox" />
+						<label for="">checkbox</label>
 						<ul>
-							<li><input type="checkbox" /></li>
-							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /><label for="">checkbox</label></li>
+							<li><input type="checkbox" /><label for="">checkbox</label></li>
 						</ul>
 					</li>
 					<li>
 						<input type="checkbox" />
+						<label for="">checkbox</label>
 						<ul>
-							<li><input type="checkbox" /></li>
-							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /><label for="">checkbox</label></li>
+							<li><input type="checkbox" /><label for="">checkbox</label></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
 			<li>
 				<input type="checkbox" />
+				<label for="">checkbox</label>
 				<ul>
 					<li>
 						<input type="checkbox" />
+						<label for="">checkbox</label>
 						<ul>
-							<li><input type="checkbox" /></li>
-							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" checked /><label for="">checkbox</label></li>
+							<li><input type="checkbox" /><label for="">checkbox</label></li>
 						</ul>
 					</li>
 					<li>
 						<input type="checkbox" />
+						<label for="">checkbox</label>
 						<ul>
-							<li><input type="checkbox" checked /></li>
-							<li><input type="checkbox" /></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<input type="checkbox" />
-				<ul>
-					<li>
-						<input type="checkbox" />
-						<ul>
-							<li><input type="checkbox" /></li>
-							<li><input type="checkbox" /></li>
-						</ul>
-					</li>
-					<li>
-						<input type="checkbox" />
-						<ul>
-							<li><input type="checkbox" /></li>
-							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /><label for="">checkbox</label></li>
+							<li><input type="checkbox" /><label for="">checkbox</label></li>
 						</ul>
 					</li>
 				</ul>
@@ -74,6 +62,8 @@ ul.tristate>li>input[type="checkbox"]+ul>li*3>input[type="checkbox"]+ul>li*2>inp
 		</ul>
 	</li>
 </ul>
+
+
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
