@@ -8,7 +8,7 @@
   <style type="text/css">
     body {
       margin-top: 1.0em;
-      background-color: #0f8671;
+      background-color: #fff;
       font-family: Helvetica, Arial, FreeSans, san-serif;
       color: #ffffff;
     }
@@ -48,13 +48,62 @@
     <div class="description">
       A plugin that allows for checkboxes in nested lists to receive indeterminate state
     </div>
+    
+    <h2>Demo</h2>
+<ul class="tristate">
+  <li>
+		<input type="checkbox" />
+		<ul>
+			<li>
+				<input type="checkbox" />
+				<ul>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<input type="checkbox" />
+				<ul>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" checked /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
 
     <h2>Dependencies</h2>
 <p>jQuery v1.6 or greater</p>
 <h2>License</h2>
 <p>MIT & GPL</p>
 <h2>Authors</h2>
-<p>Jeff Leombruno (leombruno@gmail.com)<br/><br/>      </p>
+<p>Jeff Leombruno
+<br/>
+<br/>      </p>
 
 
     <h2>Download</h2>
@@ -73,6 +122,19 @@
     </div>
 
   </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../includes/js/libs/jquery-1.6.2.min.js">\x3C/script>')</script>
+<script src="https://raw.github.com/jlbruno/jQuery-Tristate-Checkbox-plugin/master/jquery.tristate.js"></script>
+
+<script>
+  $(document).ready(function() {
+	$('.tristate').tristate();
+ });
+	
+</script>
+
+
 
   <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
