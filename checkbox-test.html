@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+
+<body>
+
+<!-- abbreviation for zen coding to generate test html 	
+ul.tristate>li>input[type="checkbox"]+ul>li*3>input[type="checkbox"]+ul>li*2>input[type="checkbox"]+ul>li*2>input[type="checkbox"]
+-->
+
+<ul class="tristate">
+	<li>
+		<input type="checkbox" />
+		<ul>
+			<li>
+				<input type="checkbox" />
+				<ul>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<input type="checkbox" />
+				<ul>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" checked /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<input type="checkbox" />
+				<ul>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<ul>
+							<li><input type="checkbox" /></li>
+							<li><input type="checkbox" /></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../includes/js/libs/jquery-1.6.2.min.js">\x3C/script>')</script>
+<script src="jquery.tristate.js"></script>
+
+<script>
+	$(document).ready(function() {
+	$('.tristate').tristate();
+ });
+	
+</script>
+
+</body>
+</html>

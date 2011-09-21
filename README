@@ -1,0 +1,4 @@
+jquery.tristate.js is a jquery plugin for adding "tristate" indeterminate functionality to checkboxes in nested lists. 
+
+To use it, simply call it on your parent list:
+$('ul.tristate').tristate();
