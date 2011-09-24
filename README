@@ -2,3 +2,6 @@ jquery.tristate.js is a jquery plugin for adding "tristate" indeterminate functi
 
 To use it, simply call it on your parent list:
 $('ul.tristate').tristate();
+
+Example available here:
+http://jlbruno.github.com/jQuery-Tristate-Checkbox-plugin/
