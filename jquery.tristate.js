@@ -7,9 +7,9 @@
  **              http://www.opensource.org/licenses/mit-license.php
  **              http://www.gnu.org/licenses/gpl.html
  **
- **              author: Jeff Leombruno
+ **              author: Jeff Leombruno, ported to jQuery 1.4 by Todd Eichel
  **              creation date: 09.20.2011
- **              dependencies: jQuery v1.6 or higher
+ **              dependencies: jQuery v1.4 or higher
  **
  **              This file contains the functionality for implementing 3 state checkboxes.
  **              Inspired by:
@@ -38,11 +38,11 @@
 				
                 pub.init = function(){
 					$('input[type="checkbox"]', obj).change(function(e) {
-						config.checked = $(this).prop("checked")
+						config.checked = $(this).attr("checked")
 						config.container = $(this).parent()
 						config.siblings = config.container.siblings();
 
-						config.container.find('input[type="checkbox"]').prop({
+						config.container.find('input[type="checkbox"]').attr({
 							indeterminate: false,
 							checked: config.checked
 						});
@@ -60,21 +60,21 @@
 					var all = true;
 
 					el.siblings().each(function() {
-						return all = ($(this).children('input[type="checkbox"]').prop("checked") === config.checked);
+						return all = ($(this).children('input[type="checkbox"]').attr("checked") === config.checked);
 					});
 
 					if (all && config.checked) {
-						parent.children('input[type="checkbox"]').prop({
+						parent.children('input[type="checkbox"]').attr({
 							indeterminate: false,
 							checked: config.checked
 						});
 						pub.checkSiblings(parent);
 					} else if (all && !config.checked) {
-						parent.children('input[type="checkbox"]').prop("checked", config.checked);
-						parent.children('input[type="checkbox"]').prop("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
+						parent.children('input[type="checkbox"]').attr("checked", config.checked);
+						parent.children('input[type="checkbox"]').attr("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
 						pub.checkSiblings(parent);
 					} else {
-						el.parents("li").children('input[type="checkbox"]').prop({
+						el.parents("li").children('input[type="checkbox"]').attr({
 							indeterminate: true,
 							checked: false
 						});
