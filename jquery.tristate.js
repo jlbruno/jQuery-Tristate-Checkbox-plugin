@@ -1,7 +1,7 @@
 /**********************************************************************************
  **
  **              jQuery Tristate Checkbox Plugin
- **              version: 1.0
+ **              version: 1.01
  **
  **              Dual licensed under the MIT and GPL licenses:
  **              http://www.opensource.org/licenses/mit-license.php
@@ -50,9 +50,6 @@
 						pub.checkSiblings(config.container);
 					});
 					// run checkSiblings for every checked checkbox when the page loads
-					$('input[type=checkbox]:checked', obj).each( function() {
-						//pub.checkSiblings($(this).parent());
-					});
 					$('input[type=checkbox]:checked', obj).trigger('change');
 				};
 				
