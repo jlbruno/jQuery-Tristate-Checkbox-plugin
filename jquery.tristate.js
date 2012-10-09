@@ -1,7 +1,7 @@
 /**********************************************************************************
  **
  **              jQuery Tristate Checkbox Plugin
- **              version: 1.0
+ **              version: 1.01
  **
  **              Dual licensed under the MIT and GPL licenses:
  **              http://www.opensource.org/licenses/mit-license.php
