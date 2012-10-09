@@ -19,24 +19,24 @@
  **********************************************************************************/
  
 (function($){
-    $.fn.tristate = function(options){
-    
-        var config = {
+	$.fn.tristate = function(options){
+	
+		var config = {
 			selector: $(this).selector,
 			checked: null,
 			container: null,
 			siblings: null
-        };
-        var opts = $.extend(config, options);
-        
-        return this.each(function(){
-            var obj = $(this);
+		};
+		var opts = $.extend(config, options);
+		
+		return this.each(function(){
+			var obj = $(this);
 			
-            var triState = function() {
+			var triState = function() {
 			
 				var pub = {};
 				
-                pub.init = function(){
+				pub.init = function(){
 					$('input[type="checkbox"]', obj).change(function(e) {
 						config.checked = $(this).prop("checked")
 						config.container = $(this).parent()
@@ -51,9 +51,10 @@
 					});
 					// run checkSiblings for every checked checkbox when the page loads
 					$('input[type=checkbox]:checked', obj).each( function() {
-						pub.checkSiblings($(this).parent());
+						//pub.checkSiblings($(this).parent());
 					});
-                };
+					$('input[type=checkbox]:checked', obj).trigger('change');
+				};
 				
 				pub.checkSiblings = function(el) {
 					var parent = el.parent().parent();
@@ -82,14 +83,14 @@
 				};
 				
 				return pub;
-                               
-            }();
-            
-            triState.init();
+							   
+			}();
+			
+			triState.init();
 			triState.checkSiblings(obj);
-            
-            
-        });
-    };
+			
+			
+		});
+	};
 })(jQuery);
 
