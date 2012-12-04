@@ -17,7 +17,7 @@
  **                   http://css-tricks.com/13467-indeterminate-checkboxes/
  **
  **********************************************************************************/
- 
+
 (function($){
 	$.fn.tristate = function(options){
 	
@@ -38,8 +38,8 @@
 				
 				pub.init = function(){
 					$('input[type="checkbox"]', obj).change(function(e) {
-						config.checked = $(this).prop("checked")
-						config.container = $(this).parent()
+						config.checked = $(this).prop("checked");
+						config.container = $(this).parent();
 						config.siblings = config.container.siblings();
 
 						config.container.find('input[type="checkbox"]').prop({
@@ -80,12 +80,10 @@
 				};
 				
 				return pub;
-							   
 			}();
 			
 			triState.init();
 			triState.checkSiblings(obj);
-			
 			
 		});
 	};
