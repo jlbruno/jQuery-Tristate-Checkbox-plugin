@@ -24,7 +24,8 @@
         "checkbox",
         "tristate",
         "indeterminate",
-        "checked"
+        "checked",
+        "form"
     ],
     "homepage": "http://jlbruno.github.com/jQuery-Tristate-Checkbox-plugin/"
 }
