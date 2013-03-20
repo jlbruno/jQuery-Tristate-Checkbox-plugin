@@ -19,73 +19,81 @@
  **********************************************************************************/
 
 (function($){
-	$.fn.tristate = function(options){
-	
-		var config = {
-			selector: $(this).selector,
-			checked: null,
-			container: null,
-			siblings: null
-		};
-		var opts = $.extend(config, options);
-		
-		return this.each(function(){
-			var obj = $(this);
-			
-			var triState = function() {
-			
-				var pub = {};
-				
-				pub.init = function(){
-					$('input[type="checkbox"]', obj).change(function(e) {
-						config.checked = $(this).prop("checked");
-						config.container = $(this).parent();
-						config.siblings = config.container.siblings();
+  $.fn.tristate = function(options){
 
-						config.container.find('input[type="checkbox"]').prop({
-							indeterminate: false,
-							checked: config.checked
-						});
-						
-						pub.checkSiblings(config.container);
-					});
-					// run checkSiblings for every checked checkbox when the page loads
-					$('input[type=checkbox]:checked', obj).trigger('change');
-				};
-				
-				pub.checkSiblings = function(el) {
-					var parent = el.parent().parent();
-					var all = true;
+    var config = {
+      selector: $(this).selector,
+      checked: null,
+      container: null,
+      siblings: null,
+      wrappers: []
+    };
+    var opts = $.extend(config, options);
 
-					el.siblings().each(function() {
-						return all = ($(this).children('input[type="checkbox"]').prop("checked") === config.checked);
-					});
+    return this.each(function(){
+      var obj = $(this);
 
-					if (all && config.checked) {
-						parent.children('input[type="checkbox"]').prop({
-							indeterminate: false,
-							checked: config.checked
-						});
-						pub.checkSiblings(parent);
-					} else if (all && !config.checked) {
-						parent.children('input[type="checkbox"]').prop("checked", config.checked);
-						parent.children('input[type="checkbox"]').prop("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
-						pub.checkSiblings(parent);
-					} else {
-						el.parents("li").children('input[type="checkbox"]').prop({
-							indeterminate: true,
-							checked: false
-						});
-					}
-				};
-				
-				return pub;
-			}();
-			
-			triState.init();
-			triState.checkSiblings(obj);
-			
-		});
-	};
+      var triState = function() {
+
+        var pub = {};
+
+        pub.init = function(){
+          $('input[type="checkbox"]', obj).change(function(e) {
+            config.checked = $(this).prop("checked");
+            config.container = $(this).closest('li');
+            config.siblings = config.container.siblings();
+
+            config.container.find('input[type="checkbox"]').prop({
+              indeterminate: false,
+              checked: config.checked
+            });
+
+            pub.checkSiblings(config.container);
+          });
+          // run checkSiblings for every checked checkbox when the page loads
+          $('input[type=checkbox]:checked', obj).trigger('change');
+        };
+
+        pub.checkSiblings = function(el) {
+          var parent = el.parent().parent();
+          var all = true;
+
+          var childInputs = function(elem) {
+            var ths = elem;
+            $.each(config.wrappers, function(ind, wrap) {
+              ths = ths.children(wrap);
+            });
+            return ths.children('input[type="checkbox"]');
+          }
+
+          el.siblings().each(function() {
+            return all = (childInputs($(this)).prop("checked") === config.checked);
+          });
+
+          if (all && config.checked) {
+            childInputs(parent).prop({
+              indeterminate: false,
+              checked: config.checked
+            });
+            pub.checkSiblings(parent);
+          } else if (all && !config.checked) {
+            childInputs(parent).prop("checked", config.checked);
+            childInputs(parent).prop("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
+            pub.checkSiblings(parent);
+          } else {
+            childInputs(el.parents("li")).prop({
+              indeterminate: true,
+              checked: false
+            });
+          }
+        };
+
+        return pub;
+      }();
+
+      triState.init();
+      triState.checkSiblings(obj);
+
+    });
+  };
 })(jQuery);
-

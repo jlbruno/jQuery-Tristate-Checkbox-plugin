@@ -3,5 +3,8 @@ jquery.tristate.js is a jquery plugin for adding "tristate" indeterminate functi
 To use it, simply call it on your parent list:
 $('ul.tristate').tristate();
 
+By default, the inputs must be direct descendants of the list elements. You may optionally pass in an array of wrappers that represents the tree of elements the inputs are nested within, e.g.:
+$('ul.tristate').tristate({wrappers:['span.classname','label']});
+
 Example available here:
 http://jlbruno.github.com/jQuery-Tristate-Checkbox-plugin/
