@@ -1,0 +1,16 @@
+; EditorConfig is awesome: http://EditorConfig.org
+
+root = true  ; top-most EditorConfig file
+
+[*.js]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+
+[*.json]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+
+[*.html]
+indent_style = tab
