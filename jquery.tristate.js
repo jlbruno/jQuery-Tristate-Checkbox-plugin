@@ -49,8 +49,8 @@
             
             pub.checkSiblings(config.container);
           });
-          // run checkSiblings for every checked checkbox when the page loads
-          $('input[type=checkbox]:checked', obj).trigger('change');
+            // run checkSiblings for every checked and indeterminate checkbox when the page loads
+            $('input[type=checkbox]:checked, input[type=checkbox]:indeterminate', obj).trigger('change');
         };
         
         pub.checkSiblings = function(el) {
