@@ -51,6 +51,9 @@
           });
           // run checkSiblings for every checked checkbox when the page loads
           $('input[type=checkbox]:checked', obj).trigger('change');
+          $('input[type="checkbox"]', obj).click(function(e) {
+            $(this).change();
+          })
         };
         
         pub.checkSiblings = function(el) {
